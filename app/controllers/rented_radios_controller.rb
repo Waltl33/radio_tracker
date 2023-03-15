@@ -1,0 +1,2 @@
+class RentedRadiosController < ApplicationController
+end

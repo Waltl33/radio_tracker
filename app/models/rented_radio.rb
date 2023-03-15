@@ -1,0 +1,2 @@
+class RentedRadio < ApplicationRecord
+end
