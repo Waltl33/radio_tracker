@@ -45,6 +45,6 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
+gem 'hirb', '~> 0.7.3'
 gem "faker"
 gem "active_model_serializers", "~> 0.10.13"
