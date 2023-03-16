@@ -1,19 +1,19 @@
-import RadioListItems from "./RadioListItems"
+import React from "react";
+import RadioListItems from "./RadioListItems";
+import { Card } from "semantic-ui-react";
 
-function RadioList({radios}){
+function RadioList({radio}) {
 
-
-const radioListed = radios?.map((radio) => {
-   return <RadioListItems
-    key = {radio.id}
-    radio = {radio}
-    />
-   
-})
-
-return (
-    <ul>{radioListed}</ul>
-)
+  const cards = radio.map((radio => (
+    <RadioListItems
+      key = {radio.id}
+      radio = {radio}/>
+  )))
+  return (
+    <Card.Group itemsPerRow={6}>
+      <h1>Rent Your Radios</h1>
+    </Card.Group>
+  );
 }
 
-export default RadioList
+export default RadioList;

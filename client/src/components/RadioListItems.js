@@ -1,15 +1,25 @@
-function RadioListItems({radio}){
-// console.log(radio)
-    const {serial_number, model} = radio
+import React from "react";
+import { Card } from "semantic-ui-react";
 
-    return(
-       <>
-            <p>RadioListItems</p>
-            <p>{serial_number}</p>
-            <p>{model}</p>
-       </>
-    )
+function RadioListItems({radio}) {
+  return (
+    <Card>
+      <div>
+        <div className="image">
+          <img alt="Nope" />
+        </div>
+        <div className="content">
+          <div className="serial number">{radio.model}</div>
+        </div>
+        <div className="extra content">
+          <span>
+            <i className="icon heartbeat red" />
+            POKEMON HP HERE hp
+          </span>
+        </div>
+      </div>
+    </Card>
+  );
 }
 
-
-export default RadioListItems
+export default RadioListItems;
