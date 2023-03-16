@@ -1,27 +1,33 @@
 import React, { useState } from 'react'
 import { Form } from 'semantic-ui-react'
 
-function Deputy({handleNewRadio}){
-    const [model, setModel] = useState("")
-    const [serial_number, setSerialNumber] = useState("")
+function DeputyForm({handleNewDeputy}){
+    const [first_name, setFirstName] = useState("")
+    const [last_name, setLastName] = useState("")
+    const [identification_number, setIdentificationNumber] = useState("")
+    const [resign, setResign] = useState("")
+    const [location, setLocation] = useState("")
 //   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
 const handleSubmit = (e) => {
     e.preventDefault()
     console.log(e)
 
-    let newRadio = {
-        model: model,
-        serial_number: serial_number, 
+    let newDeputy = {
+       first_name: first_name,
+       last_name: last_name,
+       identificaiton_number: identification_number,
+       resign: resign,
+       location: location
        }
-       fetch("/radios", {
+       fetch("/deputies", {
         method: "POST",
         headers: {"Content-Type": "application/json"
       },
-        body: JSON.stringify(newRadio)
+        body: JSON.stringify(newDeputy)
       })
         .then(resp => resp.json())
-        .then(myRadio => handleNewRadio(myRadio))
+        .then(myDeputy => handleNewDeputy(myDeputy))
     
     }
 
@@ -32,16 +38,34 @@ const handleSubmit = (e) => {
       <Form onSubmit={(e) => {{handleSubmit(e)}}}>
         <Form.Group>
           <Form.Input
-            placeholder='Model'
-            name='Model'
-            value={model}
-            onChange={(e) => setModel(e.target.value)}
+            placeholder='First Name'
+            name='First Name'
+            value={first_name}
+            onChange={(e) => setFirstName(e.target.value)}
           />
           <Form.Input
-            placeholder='Serial Number'
-            name='Serial Number'
-            value={serial_number}
-            onChange={(e) => setSerialNumber(e.target.value)}
+            placeholder='Last Name'
+            name='Last Name'
+            value={last_name}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+            <Form.Input
+            placeholder='Id Number'
+            name='Id Number'
+            value={identification_number}
+            onChange={(e) => setIdentificationNumber(e.target.value)}
+          />
+            <Form.Input
+            placeholder='Resign'
+            name='Resign'
+            value={resign}
+            onChange={(e) => setResign(e.target.value)}
+          />
+            <Form.Input
+            placeholder='Location'
+            name='Location'
+            value={location}
+            onChange={(e) => setLocation(e.target.value)}
           />
           <Form.Button content='Submit' />
         </Form.Group>
@@ -49,4 +73,4 @@ const handleSubmit = (e) => {
     )
   }
 
-export default Deputy
+export default DeputyForm
