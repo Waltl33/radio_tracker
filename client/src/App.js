@@ -1,18 +1,29 @@
 import { useState, useEffect } from "react";
-
+import Header from "./components/Header"
+import RadioList from "./components/RadioList"
+import RadioListItems from "./components/RadioListItems"
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+const [radios, setRadios] = useState([])
+
+ useEffect(()=> {
+    fetch("/radios")
+    .then(resp => resp.json())
+    .then(setRadios)
+ }, [])
 
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
+    <>
+    <Header
+    name = "radio tracker"
+    />
+    <RadioList
+   radios = {radios}
+    />
+    <RadioListItems
+    />
+    </>
+
   );
 }
 
