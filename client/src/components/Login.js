@@ -1,65 +1,90 @@
 import React, { useState } from 'react';
 import {useHistory} from 'react-router-dom'
 import './Login.css';
-import Userfront from "@userfront/core";
 
-
-// Define the Login form component
 function Login() {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       emailOrUsername: "",
-//       password: "",
-//     };
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+//   const history = useHistory()
+  
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
 
-//   this.handleInputChange = this.handleInputChange.bind(this);
-//     this.handleSubmit = this.handleSubmit.bind(this);
-//   }
+//     try {
+//       const response = await fetch('/login', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ email, password }),
+//       });
 
-//   handleInputChange(event) {
-//     event.preventDefault();
-//     const target = event.target;
-//     this.setState({
-//       [target.name]: target.value,
-//     });
-//   }
+//       if (response.ok) {
+//         history('/');
+//       } else {
+//         alert('Invalid email or password.');
+//       }
+//     } catch (error) {
+//       alert(`An error occurred: ${error.message}`);
+//     }
+//   };
 
-//   handleSubmit(event) {
-//     event.preventDefault();
-//     Userfront.login({
-//       method: "password",
-//       emailOrUsername: this.state.emailOrUsername,
-//       password: this.state.password,
-//     });
-//   }
 
-//   render() {
-    return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Email or username
-            <input
-              name="emailOrUsername"
-              type="text"
-              value={this.state.emailOrUsername}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <label>
-            Password
-            <input
-              name="password"
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <button type="submit">Log in</button>
-        </form>
+
+  return (
+
+  
+    <form>
+    {/* <!-- Email input --> */}
+    <div class="form-outline mb-4">
+      <input type="email" id="form2Example1" class="form-control" />
+      <label class="form-label" for="form2Example1">Email address</label>
+    </div>
+{/*   
+    <!-- Password input --> */}
+    <div class="form-outline mb-4">
+      <input type="password" id="form2Example2" class="form-control" />
+      <label class="form-label" for="form2Example2">Password</label>
+    </div>
+  
+    {/* <!-- 2 column grid layout for inline styling --> */}
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-center">
+        {/* <!-- Checkbox --> */}
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+          <label class="form-check-label" for="form2Example31"> Remember me </label>
+        </div>
       </div>
-    );
-  }
-
+  
+      <div class="col">
+        {/* <!-- Simple link --> */}
+        <a href="#!">Forgot password?</a>
+      </div>
+    </div>
+  
+    {/* <!-- Submit button --> */}
+    <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
+{/*   
+    <!-- Register buttons --> */}
+    <div class="text-center">
+      <p>Not a member? <a href="#!">Register</a></p>
+      <p>or sign up with:</p>
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-google"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-twitter"></i>
+      </button>
+  
+      <button type="button" class="btn btn-link btn-floating mx-1">
+        <i class="fab fa-github"></i>
+      </button>
+    </div>
+  </form>
+  )
+}
 export default Login;

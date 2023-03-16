@@ -58,8 +58,10 @@ const [deputies, setDeputies] = useState([])
       deputy = {deputies}
       />
     </Route>
-    
+
   <Route path = "/login">
+    <Login
+    />
   </Route>
      </Switch>
     </Container>
