@@ -11,7 +11,7 @@ function RadioList({radio}) {
   )))
   return (
     <Card.Group itemsPerRow={6}>
-      <h1>Rent Your Radios</h1>
+      <h1>{cards}</h1>
     </Card.Group>
   );
 }

@@ -5,7 +5,7 @@ class Deputy < ApplicationRecord
     validates :first_name, :last_name, :identification_number, :resign, :location, :presence => true
     validates :identification_number, length: { is: 4 }
     validates :identification_number, uniqueness: true
-    validate :one_rented_radio
+    # validate :one_rented_radio
 
  
 

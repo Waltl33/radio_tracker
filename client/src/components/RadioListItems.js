@@ -4,19 +4,10 @@ import { Card } from "semantic-ui-react";
 function RadioListItems({radio}) {
   return (
     <Card>
-      <div>
-        <div className="image">
-          <img alt="Nope" />
-        </div>
-        <div className="content">
-          <div className="serial number">{radio.model}</div>
-        </div>
-        <div className="extra content">
-          <span>
-            <i className="icon heartbeat red" />
-            POKEMON HP HERE hp
-          </span>
-        </div>
+      <div>     
+      <div className="serial number"> Serial Number: {radio.serial_number}</div> 
+      <span>
+      <i className="model number" /> Model Number: {radio.model} </span>
       </div>
     </Card>
   );

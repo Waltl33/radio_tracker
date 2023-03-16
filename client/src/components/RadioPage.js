@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import RadioList from "./RadioList"
+import RadioForm from "./RadioForm"
 import { Container } from "semantic-ui-react";
 
 function RadioPage() {
@@ -12,12 +13,23 @@ const [radios, setRadios] = useState([])
     .then(setRadios)
  }, [])
 
+
+ const handleNewRadio =(myRadio) => {
+  setRadios([myRadio, ...radios])
+ }
  return (
     <Container>
       <h1>Radios</h1>
-    
+      <br />
+      <RadioForm
+      handleNewRadio = {handleNewRadio}
+      />
+      <br/>
+      <DeputyForm
+      />
       <RadioList
-      radio = {radios} />
+      radio = {radios} 
+      />
      
     </Container>
   );

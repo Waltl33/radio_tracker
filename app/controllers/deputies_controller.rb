@@ -1,5 +1,5 @@
 class DeputiesController < ApplicationController
-   
+    before_action :set_access_control_headers
     def index
         render json:Deputy.all, status: :ok
     end
@@ -9,7 +9,7 @@ class DeputiesController < ApplicationController
     end
     
     def create
-        render json:Deputy.create!(radio_params), status: :created
+        render json:Deputy.create!(deputy_params), status: :created
     end
     
     def update
@@ -28,5 +28,9 @@ class DeputiesController < ApplicationController
     def deputy_params
         params.permit(:first_name, :last_name, :identification_number, :resign, :location,)
     end
-    
+    def set_access_control_headers
+        headers['Access-Control-Allow-Origin'] = 'http://localhost:4000'
+        headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, PATCH, DELETE, OPTIONS'
+        headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type, Accept, Authorization, Token'
+    end
 end
