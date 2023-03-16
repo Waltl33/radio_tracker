@@ -14,7 +14,7 @@ end
 
 def update
     radios = Radio.find(params[:id])
-    render json: radios.update!(radio_params), status: :ok
+    render json = radios.update!(radio_params), status: :ok
 end
 
 def destroy
@@ -26,7 +26,7 @@ end
 private
 
 def radio_params
-    params.permit(:model, :serial_number)
+    params.permit(:serial_number, :model, :id)
 end
 
 end
