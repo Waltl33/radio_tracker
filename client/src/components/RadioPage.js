@@ -10,6 +10,7 @@ function RadioPage() {
 
 const [radios, setRadios] = useState([])
 const [deputies, setDeputies] = useState([])
+const [rented_radios, setRentedRadios] = useState([])
  useEffect(()=> {
     fetch("http://127.0.0.1:3000/radios")
     .then(resp => resp.json())
@@ -21,7 +22,11 @@ const [deputies, setDeputies] = useState([])
   .then(resp => resp.json())
   .then(setDeputies)
 }, [])
-
+useEffect(()=> {
+  fetch("http://127.0.0.1:3000/rented_radios")
+  .then(resp => resp.json())
+  .then(console.log)
+}, [])
 
  const handleNewRadio =(myRadio) => {
   setRadios([myRadio, ...radios])
@@ -29,6 +34,10 @@ const [deputies, setDeputies] = useState([])
  const handleNewDeputy =(myDeputy) => {
   setDeputies([myDeputy, ...radios])
  }
+
+ function assignRadio(
+  if 
+ )
  return (
     <Container>
    

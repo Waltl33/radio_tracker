@@ -3,51 +3,51 @@ import {useHistory} from 'react-router-dom'
 
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errors, setErrors] = useState([])
-    const history = useHistory()
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [errors, setErrors] = useState([])
+  //   const history = useHistory()
 
     
 
-    function onSubmit(e){
-        e.preventDefault()
-        const user = {
-            email,
-            password
-        }
+  //   function onSubmit(e){
+  //       e.preventDefault()
+  //       const user = {
+  //           email,
+  //           password
+  //       }
        
-        fetch(`/login`,{
-          method:'POST',
-          headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
-        })
-        .then(res => {
-            if(res.ok){
-                res.json().then(user => {
-                    history.push(`/users/${user.id}`)
-                })
-            }else {
-                res.json().then(json => setErrors(Object.entries(json.errors)))
-            }
-        })
+  //       fetch(`/login`,{
+  //         method:'POST',
+  //         headers:{'Content-Type': 'application/json'},
+  //         body:JSON.stringify(user)
+  //       })
+  //       .then(res => {
+  //           if(res.ok){
+  //               res.json().then(user => {
+  //                   history.push(`/users/${user.id}`)
+  //               })
+  //           }else {
+  //               res.json().then(json => setErrors(Object.entries(json.errors)))
+  //           }
+  //       })
        
-    }
+  //   }
 
 
   return (
 
   
-    <form onSubmit={onSubmit}>
+    <form >
     {/* <!-- Email input --> */}
     <div class="form-outline mb-4">
-      <input type="email" id="form2Example1" class="form-control" value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <input type="email" id="form2Example1" class="form-control" />
       <label class="form-label" for="form2Example1">Email address</label>
     </div>
 {/*   
     <!-- Password input --> */}
     <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control"value={password} onChange={(e) => setPassword(e.target.value)} />
+      <input type="password" id="form2Example2" class="form-control" />
       <label class="form-label" for="form2Example2">Password</label>
     </div>
   
