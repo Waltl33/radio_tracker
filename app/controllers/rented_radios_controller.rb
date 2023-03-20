@@ -3,29 +3,29 @@ class RentedRadiosController < ApplicationController
         render json: RentedRadio.all, status: :ok
     end
     
-    def showRented
+    def show
         render json: RentedRadio.find(params[:id]), status: :ok
     end
     
     def create
-        render json: RentedRadio.create!(radio_params), status: :created
+        render json: RentedRadio.create!(rented_radio_params), status: :created
     end
     
     def update
-        radios = RentedRadio.find(params[:id])
-        render json: radios.update!(radio_params), status: :ok
+        rented_radios = RentedRadio.find(params[:id])
+        render json: radios.update!(rented_radio_params), status: :ok
     end
     
     def destroy
-        radios = RentedRadio.find(params[:id])
-        radios.destroy
+        rented_radios = RentedRadio.find(params[:id])
+        rented_radios.destroy
         head :no_content
     end
     
     private
     
-    def radio_params
-        params.permit(:model, :serial_number)
+    def rented_radio_params
+        params.permit(:deputy_id, :radio_id)
     end
     
 end
